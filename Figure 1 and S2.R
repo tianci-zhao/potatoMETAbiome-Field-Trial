@@ -1,4 +1,4 @@
-# PotatoMETAbiom Greenhouse experiment
+# PotatoMETAbiom Field trial experiment
 # NL - plant development - Week5
 
 ## load libraries
