@@ -1,7 +1,7 @@
 # PotatoMETAbiom Field trial experiment
 # NL - plant development - Week5
 
-## load libraries
+## load libraries####
 library(tidyverse)
 library(ggplot2)
 library(RColorBrewer)
@@ -10,7 +10,7 @@ library(patchwork)
 library(readxl)
 
 
-##load dataset for analysis
+##load dataset for analysis####
 #biomass_w5.xlsx
 df2 <- as.data.frame(read_excel("Biomass_w5.xlsx"))
 df2$Treatment <- factor(df2$Treatment, levels=c("Control", "Consortium B", "Consortium BP", "Fertilizers", "Pesticides", "Fertilizers-Pesticides"))
@@ -142,7 +142,7 @@ fig1 + fig2 + fig3 + fig4+ plot_layout(nrow = 4, guides= "collect")&
 #ggsave("biomass_root_shoot_var.pdf",fig1 + fig2 + fig3 + fig4 + plot_layout(nrow = 4, guides= "collect")&theme(legend.position = 'bottom'), width=15,height=12)
 
 
-##Two-way ANOVA
+## Two-way ANOVA####
 library(agricolae)
 library(tidyverse)
 library(dplyr)
@@ -165,7 +165,7 @@ re.test <- duncan.test(re.av, trt = 'Variety')
 re.test
 
 
-#-----treatments in same variety
+##treatments in same variety####
 ##figures  treatment/varieties
 fig1 <- ggplot(df2) + 
   geom_boxplot(aes(x = Treatment, y = Height, color = Treatment,fill = Treatment), 
@@ -293,11 +293,8 @@ fig1 + fig2 + fig3 + fig4+ plot_layout(nrow = 4, guides= "collect")&
 
 #ggsave("biomass_root_shoot_tre_1.pdf",fig1 + fig2 + fig3 + fig4 + plot_layout(nrow = 4, guides= "collect")&theme(legend.position = 'bottom'), width=15,height=12)
 
-library(agricolae)
-library(tidyverse)
-library(dplyr)
-library(readxl)
-##Two-way ANOVA
+
+## Two-way ANOVA####
 
 res <- aov(df2$root_shoot ~ df2$Treatment * df2$Variety, data = df2)
 
