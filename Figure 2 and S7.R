@@ -22,7 +22,7 @@ mytheme <-
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())
 
------------#Figure 2####-------------------
+#Figure 2####
 ###Bacteria_import datasets####
 # feature table
 otu_table <- read.csv("otu_table_16S_rhi_W5.csv",header=T,row.names=1,sep = ";")
@@ -158,8 +158,7 @@ Fig2 <- Bac1 + Fun1 + Bac2 + Fun2 + plot_layout(nrow = 2, guides= "collect")&
 Fig2
 
 
-
--------------#Figure S7####--------
+#Figure S7####
 ###Bacteria_import datasets####
 # feature table
 com <- read.csv("otu_table_16S_W5.csv", header = 1, row.names = 1, sep = ",") 
