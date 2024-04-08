@@ -1,5 +1,5 @@
 # PotatoMETAbiom Field trial experiment
-# NL - microbial community composition - Week5
+# NL - microbial community distance - Week5
 
 ##Initiate libraries####
 rm(list=ls())
