@@ -22,7 +22,7 @@ mytheme <-
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())
 
------------#Figure 2 and S8####-------------------
+-----------#Figure 2####-------------------
 ###Bacteria_import datasets####
 # feature table
 otu_table <- read.csv("otu_table_16S_rhi_W5.csv",header=T,row.names=1,sep = ";")
