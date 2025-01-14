@@ -11,9 +11,9 @@ library(ggplot2)
 library(ggpubr)
 library(patchwork)
 
-#Figure 3####
+#Figure 3ab Similarities in rhizosphere soil microbial communities relative to the Control under different management regimes####
 
-### import bacterial distance data (Bray Curtis)####
+### import bacterial distance data (Bray Curtis) to control treatment####
 mydata <- data.table::fread("bac_dist_T1.csv")
 
 # analysis of variance; 1-DISTANCE = similarity
@@ -62,7 +62,7 @@ p1
 #ggsave("distance_T1_bac_man_1.jpeg", dpi=600, width=15, height=14,  units="cm")
 
 
-### import fungal distance data####
+### import fungal distance data(Bray Curtis) to control treatment####
 mydata <- data.table::fread("fun_dist_T1.csv")
 
 # analysis of variance; 1-DISTANCE = similarity
@@ -114,10 +114,12 @@ p2
 Fig3 <- p1 +p2 + plot_layout(nrow = 1, guides= "collect")&
   theme(legend.position = 'bottom')
 
-ggsave("distance_control_man_1.pdf",p1 +p2+ plot_layout(nrow = 1, guides= "collect")&
+ggsave("Figure 3ab.pdf",p1 +p2+ plot_layout(nrow = 1, guides= "collect")&
          theme(legend.position = 'bottom'),width=7,height=5)
 
-##Figure S9####
+
+
+##Figure S4 The similarity of treatment on the distance of rhizosphere soil microbial communities, compared to Control####
 
 ### import bacterial distance data####
 mydata <- data.table::fread("bac_dist_T1.csv")
@@ -224,11 +226,11 @@ p4
 p3 +p4 + plot_layout(nrow = 1, guides= "collect")&
   theme(legend.position = 'right')
 
-ggsave("distance_control_4.pdf",p3 + p4 + plot_layout(nrow = 1, guides= "collect")&
+ggsave("Figure S4.pdf",p3 + p4 + plot_layout(nrow = 1, guides= "collect")&
          theme(legend.position = 'right'),width=9,height=5)
 
 
-##Figure S10####
+##Figure S5 The dissimilarity distance of rhizosphere soil microbial communities within cultivars####
 
 ### import bacterial distance data####
 mydata <- data.table::fread("bac_dist_all_variety.csv")
@@ -335,7 +337,7 @@ p6
 p5 + p6 + plot_layout(nrow = 1, guides= "collect")&
   theme(legend.position = 'right')
 
-ggsave("distance_varieties_dissimi_1.pdf",p5 + p6 + plot_layout(nrow = 1, guides= "collect")&
+ggsave("Figure S5.pdf",p5 + p6 + plot_layout(nrow = 1, guides= "collect")&
          theme(legend.position = 'right'),width=10,height=4.5)
 
 
