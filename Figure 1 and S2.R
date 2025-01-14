@@ -9,8 +9,8 @@ library(ggpubr)
 library(patchwork)
 library(readxl)
 
-
-##load dataset for analysis####
+#Figure 1 a-d Plant performance of seven potato cultivars across treatments
+##load dataset for analysis
 #biomass_w5.xlsx
 df2 <- as.data.frame(read_excel("Biomass_w5.xlsx"))
 df2$Treatment <- factor(df2$Treatment, levels=c("Control", "Consortium B", "Consortium BP", "Fertilizers", "Pesticides", "Fertilizers-Pesticides"))
@@ -144,29 +144,19 @@ fig1 + fig2 + fig3 + fig4+ plot_layout(nrow = 4, guides= "collect")&
 
 ## Two-way ANOVA####
 library(agricolae)
-library(tidyverse)
-library(dplyr)
-library(readxl)
-
-
 res <- aov(df2$root_shoot ~ df2$Treatment*df2$Variety, data = df2)
-
 summary(res)
-
-
 #post hoc - treatment
 df3 <- df2 %>% filter(Treatment == "Fertilizers-Pesticides")
-
 re.lm <- lm(root_shoot ~ Variety, data = df3)
 re.av <- aov(re.lm) #betweenness
 summary(re.av)  
-
 re.test <- duncan.test(re.av, trt = 'Variety')
 re.test
 
 
-##treatments in same variety####
-##figures  treatment/varieties
+
+#Figure S3 Plant performance of six treatments across the same cultivars
 fig1 <- ggplot(df2) + 
   geom_boxplot(aes(x = Treatment, y = Height, color = Treatment,fill = Treatment), 
                lwd = 0.3, outlier.size = -1, 
@@ -295,15 +285,10 @@ fig1 + fig2 + fig3 + fig4+ plot_layout(nrow = 4, guides= "collect")&
 
 
 ## Two-way ANOVA####
-
 res <- aov(df2$root_shoot ~ df2$Treatment * df2$Variety, data = df2)
-
 summary(res)
-
-
 #post hoc - Variety
 df3 <- df2 %>% filter(Variety == "ATOL")
-
 re.lm <- lm(root_shoot ~ Treatment, data = df3)
 re.av <- aov(re.lm) #betweenness
 summary(re.av)  
