@@ -208,6 +208,15 @@ soil_nodes <- rownames(nodeattrib_soil_combine[nodeattrib_soil_combine$indicgrou
 soil_nodesizes <- as.numeric(V(all_soil_net)$size)
 
 
+# Extract node attributes, including name, indicgroup and size
+vertex_attributes <- data.frame(
+  node_id = igraph::V(all_soil_net)$name,  
+  indicgroup = igraph::vertex_attr(all_soil_net, "indicgroup"),  # indicgroup 
+  size = igraph::vertex_attr(all_soil_net, "size")  # size 
+)
+write.csv(vertex_attributes, "indicgroup_bio.csv", row.names = FALSE) #use for Figure s6
+                                        
+
 #Vectorize each type of significant inter-group difference OTUs for subsequent calculations
 Con_nodes <- rownames(nodeattrib_soil_combine[nodeattrib_soil_combine$indicgroup=="2",])
 #Con_Eco_nodes <- rownames(nodeattrib_soil_combine[nodeattrib_soil_combine$indicgroup=="2_3",])
@@ -245,14 +254,17 @@ dev.off()
 
 
 #Chemical management####
-#Same method with biological management (showe above), just replace the data and slightly adjust
+#Same method with biological management (show above), just replace the data and slightly adjust
 design_16S<- read_excel("metadata_16S_che.xls",sheet = 1,col_names = T)
 design_its<- read_excel("metadata_its_che.xls",sheet = 1,col_names = T) # the samples have different number for fungi and bacteria
 
 #delete rows containing 0 that more than 4 columns (No.samples-4)
 otu_16S_re <- otu_16S_bio[rowSums(otu_16S_bio == 0) <= 36, ]# 36 should be replaced
 
-
+##same as above, and save "indicgroup_che.csv", use for Figure s7
+                                        
+                        
+                                        
 
 #Links information####
 library(ggplot2)
