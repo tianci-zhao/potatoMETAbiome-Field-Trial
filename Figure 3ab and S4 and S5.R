@@ -232,7 +232,7 @@ p4 <- ggplot(mydata, aes(x=Treatment, y=1-Distance, fill=Treatment)) +
   xlab("")+
   labs(title = "Fungi")+
   geom_text(data = Tk, aes(x = Treatment, y = mean, label = cld),
-            size = 5, vjust=-4, hjust = 0.5)+#v 调节高度，h调节横向
+            size = 5, vjust=-4, hjust = 0.5)+
   scale_color_manual(values=c("#a6c39d","#2a9c90","#eab68e","#e2db47","#ea8e94")) +
   scale_fill_manual(values=c("#a6c39d","#2a9c90","#eab68e","#e2db47","#ea8e94"))+
   theme(panel.background=element_rect(fill='white', color='black'), 
@@ -253,6 +253,7 @@ ggsave("Figure S4.pdf",p3 + p4 + plot_layout(nrow = 1, guides= "collect")&
 
 
 ##Figure S5 The dissimilarity distance of rhizosphere soil microbial communities within cultivars####
+
 
 ### import bacterial distance data####
 mydata <- data.table::fread("bac_dist_all_variety.csv")
