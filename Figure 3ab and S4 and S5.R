@@ -13,7 +13,18 @@ library(patchwork)
 
 #Figure 3ab Similarities in rhizosphere soil microbial communities relative to the Control under different management regimes####
 
+## Bacterial Bray_Curtis distance ####
+# distance bray
+otu_table <- read.csv("otu_table_16S_rhi_W5.csv", header = 1, row.names = 1, sep = ",") 
+
+all.dist <- vegdist(otu_table, method = "bray", binary = F)
+
+all.dist <-as.matrix(all.dist)
+
+write.csv(all.dist, file = "bac_dist.csv")#select the ones that are compared to control (T1)
+
 ### import bacterial distance data (Bray Curtis) to control treatment####
+
 mydata <- data.table::fread("bac_dist_T1.csv")
 
 # analysis of variance; 1-DISTANCE = similarity
@@ -61,6 +72,17 @@ p1
 
 #ggsave("distance_T1_bac_man_1.jpeg", dpi=600, width=15, height=14,  units="cm")
 
+
+
+## FUngal Bray_Curtis distance ####
+# distance bray
+otu_table <- read.csv("otu_table_ITS_rhi_W5.csv", header = 1, row.names = 1, sep = ",") 
+
+all.dist <- vegdist(otu_table, method = "bray", binary = F)
+
+all.dist <-as.matrix(all.dist)
+
+write.csv(all.dist, file = "fun_dist.csv")#select the ones that are compared to control (T1)
 
 ### import fungal distance data(Bray Curtis) to control treatment####
 mydata <- data.table::fread("fun_dist_T1.csv")
