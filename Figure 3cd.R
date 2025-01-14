@@ -1,3 +1,7 @@
+# PotatoMETAbiom Field trial experiment
+# NL - heatmap-significant different genera among management - Week5
+
+##Initiate libraries####
 rm(list=ls())
 library(dplyr)
 library(ggplot2)
