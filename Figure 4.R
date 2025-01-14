@@ -1,5 +1,5 @@
 # PotatoMETAbiom Field trial experiment
-# NL - microbial commmunity network - Week5
+# NL - microbial commmunity network - Week5, the code was updated based on Hartman et al. (2018) doi:10.1186/s40168-017-0389-9
 
 ##Initiate libraries####
 rm(list=ls())
