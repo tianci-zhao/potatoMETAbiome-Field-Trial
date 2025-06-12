@@ -8,7 +8,7 @@ library(ggplot2)
 library(dplyr)
 
 
-#Figure S1 Performance of MIT-selected cultivars in a previous controlled greenhouse experiment.
+#Figure S9 Performance of MIT-selected cultivars in a previous controlled greenhouse experiment.
 #load metadata in vitro condition
 df <- read.csv("metadata_for_zscore_GH.csv", header = 1, row.names = 1, sep = ",")
 
