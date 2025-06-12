@@ -268,3 +268,5 @@ p4
 dev.off()
 
 
+##Figure 6, same code, but change the comparision among different levels of MIT
+
